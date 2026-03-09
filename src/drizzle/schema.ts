@@ -1,8 +1,9 @@
-import { pgTable, uuid, varchar, timestamp } from "drizzle-orm/pg-core";
+import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { createId } from "@paralleldrive/cuid2";
 
-export const userTable = pgTable("users", {
-    id: uuid("id").primaryKey().defaultRandom(),
-    name: varchar("name", { length: 255 }).notNull(),
-    email: varchar("email", { length: 255 }).notNull(),
-    createdAt: timestamp("created_at").defaultNow(),
+export const userTable = sqliteTable("users", {
+    id: text("id").primaryKey().$defaultFn(() => createId()),
+    name: text("name").notNull(),
+    email: text("email").notNull(),
+    createdAt: integer("created_at", { mode: 'timestamp' }).$defaultFn(() => new Date()),
 });

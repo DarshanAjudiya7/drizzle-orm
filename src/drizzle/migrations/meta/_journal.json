@@ -1,12 +1,12 @@
 {
   "version": "7",
-  "dialect": "postgresql",
+  "dialect": "sqlite",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1773071024490,
-      "tag": "0000_acoustic_firelord",
+      "version": "6",
+      "when": 1773074922096,
+      "tag": "0000_overconfident_shinko_yamashiro",
       "breakpoints": true
     }
   ]
